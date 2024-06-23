@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        
+      }
+
+      #root {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const mstyle = {
+        justifyContent: "center", 
+        
+        
+        
+      };
+      const mp = {
+        color:"grey", 
+      };
+
+      const inp = {
+        placeholder: "john@doe.net",
+        color:"grey", 
+        borderRadius: "15px",
+        marginRight: "20px"
+      }
+      const btns={
+
+        backgroundColor : "blue",
+        marginRight : "5px",
+        border:"none",
+        borderRadius: "15px",
+        height:"35px",
+        width : "250px",
+
+      }
+      const btnss={
+        backgroundColor : "blue",
+        marginRight : "5px",
+        border:"none",
+        borderRadius: "15px",
+        height:"35px",
+      }
+
+
+      const imgtemplate = (<img src="Screenshot 2024-06-23 124632.png" alt="" style={mstyle} />);
+      const ps =(<h2><b style={{...mstyle}}>SUBSCRIBE</b></h2>)
+      const psd = (<h3 style={{...mp}}>Subscribe to our newsletter & stay up to date</h3>)
+      const inpp =<input {...inp} style={btns}></input> 
+      const btn =<button style={btnss}>Subscribe</button>
+      const messagesbox = (
+        <div>
+          {imgtemplate}
+          {ps}
+          {psd}
+          <div>
+            {inpp}
+            {btn}
+
+            
+          </div>
+        </div>
+      );
+
+      // Since React 18, use createRoot().render()
+      const ele = ReactDOM.createRoot(document.getElementById("root"));
+      ele.render(messagesbox);
+    </script>
+  </body>
+</html>
